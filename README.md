@@ -6,7 +6,7 @@ A methodical approach to hardening AWS IAM posture — covering user classificat
 
 ## Overview
 
-This project documents an IAM hardening initiative across an AWS environment with 23 IAM users — the majority without MFA enabled, many with long-lived access keys, and several accounts holding overly broad permissions.
+This project documents an IAM hardening initiative across an AWS environment with 23 IAM users, the majority without MFA enabled, many with long-lived access keys, and several accounts holding overly broad permissions.
 
 The approach classifies all IAM users before taking action, ensuring MFA rollout and key rotation are applied appropriately to each user type without disrupting active workloads.
 
@@ -18,7 +18,7 @@ The approach classifies all IAM users before taking action, ensuring MFA rollout
 |---|---|---|
 | **Human** | Engineers and admins logging in interactively | Enforce MFA via IAM policy |
 | **Hybrid** | Humans who also have programmatic access | Enforce MFA + rotate access keys |
-| **Service** | Non-human accounts used by apps/systems | No console MFA — rotate keys on schedule |
+| **Service** | Non-human accounts used by apps/systems | No console MFA: rotate keys on schedule |
 | **Break-glass** | Emergency access accounts | MFA required, usage monitored via CloudTrail |
 | **Stale** | Inactive accounts with no recent activity | Disable, then schedule for deletion |
 
@@ -28,7 +28,7 @@ The approach classifies all IAM users before taking action, ensuring MFA rollout
 
 - Majority of human and hybrid IAM users had no MFA configured
 - Access keys on active accounts ranging from 180 to 500+ days old without rotation
-- AWS Config not recording IAM resource changes — no audit trail for IAM events
+- AWS Config not recording IAM resource changes, leaving no audit trail for IAM events
 - Overly broad managed policies with wildcard actions on sensitive services
 - No enforcement boundary preventing privilege escalation paths
 
