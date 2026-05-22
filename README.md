@@ -111,3 +111,9 @@ iam-hardening-mfa-rollout/
 - Bash, PowerShell
 
 > All usernames, account IDs, ARNs, and policy names have been sanitized.
+
+
+## Architecture Diagram
+
+![IAM and MFA Architecture](docs/diagrams/03_iam-mfa-architecture.png)
+
